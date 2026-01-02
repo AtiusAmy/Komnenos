@@ -19,8 +19,6 @@ dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fed
 dnf config-manager setopt tailscale-stable.enabled=0
 dnf -y install --enablerepo='tailscale-stable' tailscale
 
-dnf5 -y uninstall toolbox
-
 if [ "$(rpm -E "%{fedora}")" == 43 ] ; then
   dnf -y copr enable ublue-os/flatpak-test
   dnf -y copr disable ublue-os/flatpak-test
@@ -116,6 +114,8 @@ systemctl enable --global gnome-keyring-daemon.service
 systemctl enable --global gnome-keyring-daemon.socket
 systemctl enable brew-setup.service
 systemctl enable flatpak-preinstall.service
+systemctl enable --global bazaar.service
+
 
 tee /usr/lib/sysusers.d/greeter.conf <<'EOF'
 g greeter 767
