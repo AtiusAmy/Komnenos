@@ -137,6 +137,8 @@ EOF
 systemctl preset systemd-resolved.service
 
 dnf -y copr enable ublue-os/packages
+dnf -y copr enable secureblue/trivalent
+dnf -y copr enable secureblue/run0edit
 dnf -y copr disable ublue-os/packages
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages install uupd ublue-os-udev-rules
 
@@ -224,7 +226,11 @@ dnf -y install \
     wl-clipboard \
     xdg-desktop-portal-gnome \
     xdg-desktop-portal-gtk \
-    xdg-user-dirs
+    xdg-user-dirs \
+    trivalent \
+    trivalent-subresource-filter \
+    run0edit
+
 
 rm -rf /usr/share/doc/just
 
@@ -268,6 +274,8 @@ systemctl enable --global gnome-keyring-daemon.socket
 systemctl enable brew-setup.service
 systemctl enable flatpak-preinstall.service
 systemctl enable --global bazaar.service
+systemctl enable rechunker-group-fix.service
+
 
 
 tee /usr/lib/sysusers.d/greeter.conf <<'EOF'
@@ -277,3 +285,9 @@ EOF
 
 dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf5 install -y broadcom-wl akmod-wl
+
+rm -f /usr/bin/chsh
+rm -f /usr/bin/chfn
+rm -f /usr/bin/pkexec
+rm -f /usr/bin/sudo
+rm -f /usr/bin/su
