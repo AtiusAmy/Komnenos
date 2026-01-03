@@ -29,9 +29,16 @@ dnf -y remove \
   sssd* \
   qemu-user-static* \
   toolbox
+  
+
+dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
+dnf config-manager setopt fedora-multimedia.enabled=0
+dnf -y install --enablerepo=fedora-multimedia \
+    -x PackageKit* \
+    ffmpeg libavcodec @multimedia gstreamer1-plugins-{bad-free,bad-free-libs,good,base} lame{,-libs} libjxl ffmpegthumbnailer
 
 dnf -y copr enable amyiscoolz/komnenos-logos
-dnf -y install komnenos-logos
+dnf -y install komnenos-logos xwayland
 
 # These were manually picked out from a Bluefin comparison with `rpm -qa --qf="%{NAME}\n" `
 dnf -y install \
@@ -245,11 +252,6 @@ dnf install -y --setopt=install_weak_deps=False \
 
 sed --sandbox -i -e '/gnome_keyring.so/ s/-auth/auth/ ; /gnome_keyring.so/ s/-session/session/' /etc/pam.d/greetd
 
-dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-multimedia.repo
-dnf config-manager setopt fedora-multimedia.enabled=0
-dnf -y install --enablerepo=fedora-multimedia \
-    -x PackageKit* \
-    ffmpeg libavcodec @multimedia gstreamer1-plugins-{bad-free,bad-free-libs,good,base} lame{,-libs} libjxl ffmpegthumbnailer
 
 dnf config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-cdrtools.repo
 dnf config-manager setopt fedora-cdrtools.enabled=0
