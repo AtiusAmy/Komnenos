@@ -12,6 +12,9 @@ set -ouex pipefail
 
 set -xeuo pipefail
 
+dnf -y copr enable amyiscoolz/komnenos-logos
+dnf -y install komnenos-logos
+
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 
@@ -275,6 +278,7 @@ systemctl enable brew-setup.service
 systemctl enable flatpak-preinstall.service
 systemctl enable --global bazaar.service
 systemctl enable rechunker-group-fix.service
+systemctl enable greetd
 
 
 
