@@ -12,9 +12,6 @@ set -ouex pipefail
 
 set -xeuo pipefail
 
-dnf -y copr enable amyiscoolz/komnenos-logos
-dnf -y install komnenos-logos
-
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 
@@ -32,6 +29,9 @@ dnf -y remove \
   sssd* \
   qemu-user-static* \
   toolbox
+
+dnf -y copr enable amyiscoolz/komnenos-logos
+dnf -y install komnenos-logos
 
 # These were manually picked out from a Bluefin comparison with `rpm -qa --qf="%{NAME}\n" `
 dnf -y install \
