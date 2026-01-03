@@ -12,6 +12,10 @@ set -ouex pipefail
 
 set -xeuo pipefail
 
+rpm --erase --nodeps fedora-logos
+dnf install -y https://repo.almalinux.org/almalinux/10/AppStream/x86_64/os/Packages/almalinux-logos-100.3-3.el10_0.x86_64.rpm
+
+
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved.service
 
@@ -286,8 +290,6 @@ EOF
 dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf5 install -y broadcom-wl akmod-wl
 
-rm -f /usr/bin/chsh
-rm -f /usr/bin/chfn
-rm -f /usr/bin/pkexec
-rm -f /usr/bin/sudo
-rm -f /usr/bin/su
+sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/secureblue.repo
+dnf -y copr disable secureblue/trivalent
+dnf -y copr disable secureblue/run0edit
