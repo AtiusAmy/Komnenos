@@ -293,8 +293,6 @@ g greeter 767
 u greeter 767 "Greetd greeter"
 EOF
 
-dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf5 install -y broadcom-wl akmod-wl kmod-wl
 
 sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/secureblue.repo
 dnf -y copr disable secureblue/trivalent
