@@ -82,6 +82,7 @@ dnf -y install \
   hyperv-daemons \
   ibus \
   ifuse \
+  iwd \
   intel-audio-firmware \
   iwlegacy-firmware \
   iwlwifi-dvm-firmware \
@@ -134,6 +135,15 @@ sed -i 's|^ExecStart=.*|ExecStart=/usr/bin/bootc update --quiet|' /usr/lib/syste
 sed -i 's|^OnUnitInactiveSec=.*|OnUnitInactiveSec=7d\nPersistent=true|' /usr/lib/systemd/system/bootc-fetch-apply-updates.timer
 sed -i 's|#AutomaticUpdatePolicy.*|AutomaticUpdatePolicy=stage|' /etc/rpm-ostreed.conf
 sed -i 's|#LockLayering.*|LockLayering=true|' /etc/rpm-ostreed.conf
+
+## what if we switched to iwd? 
+cat > output.txt <<EOF
+[device]
+wifi.backend=iwd
+EOF
+
+#systemctl unmask iwd
+systemctl enable iwd
 
 systemctl enable bootc-fetch-apply-updates
 
