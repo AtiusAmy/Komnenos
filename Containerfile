@@ -49,7 +49,6 @@ RUN dnf5 install -y /tmp/akmods-common/rpms/kmods/kmod-v4l2loopback*.rpm --skip-
 RUN dnf5 install -y /tmp/akmods-common/rpms/kmods/kmod-xone*.rpm --skip-broken
 RUN dnf5 install -y /tmp/akmods-common/rpms/kmods/kmod-framework-laptop*.rpm --skip-broken
 RUN dnf5 install -y /tmp/akmods-common/rpms/kmods/kmod-openrazer*.rpm --skip-broken
-RUN dnf5 install -y /tmp/akmods-common/rpms/kmods/kmod-wl*.rpm broadcom-wl --skip-broken
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
