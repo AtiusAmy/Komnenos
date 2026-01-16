@@ -251,7 +251,8 @@ dnf -y install \
     trivalent-subresource-filter \
     run0edit \
     adw-gtk3-theme \
-    swaybg
+    swaybg \
+    labwc-tweaks
 
 
 rm -rf /usr/share/doc/just

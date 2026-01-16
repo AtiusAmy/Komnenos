@@ -9,3 +9,28 @@ IsRuntime=false
 [Flatpak Preinstall io.github.kolunmi.Bazaar]
 Branch=stable
 IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Calendar]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Contacts]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gnome.Loupe]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall io.github.celluloid_player.Celluloid]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gtk.Gtk3theme.adw-gtk3]
+Branch=stable
+IsRuntime=false
+
+[Flatpak Preinstall org.gtk.Gtk3theme.adw-gtk3-dark]
+Branch=stable
+IsRuntime=false
+
