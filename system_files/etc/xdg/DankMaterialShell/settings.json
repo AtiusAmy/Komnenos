@@ -122,7 +122,7 @@
   "networkPreference": "auto",
   "iconTheme": "System Default",
   "launcherLogoMode": "custom",
-  "launcherLogoCustomPath": "/usr/share/zirconium/pixmaps/logo-z.svg",
+  "launcherLogoCustomPath": "/usr/share/komnenos/komnenos.svg",
   "launcherLogoColorOverride": "surface",
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,

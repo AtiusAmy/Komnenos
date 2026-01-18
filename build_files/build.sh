@@ -330,6 +330,8 @@ dnf -y install --enablerepo=docker-ce-stable \
 dnf -y copr disable secureblue/trivalent
 dnf -y copr disable secureblue/run0edit
 
+dnf -y install https://github.com/dangvd/crystal-dock/releases/download/v2.16/crystal-dock-2.16-1.x86_64.rpm
+
 # These files NEED to be on the image.
 grep -F -e "ghcr.io/atiusamy/komnenos" /etc/containers/policy.json
 stat /etc/pki/containers/komnenos.pub
