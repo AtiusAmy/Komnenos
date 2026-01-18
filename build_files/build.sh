@@ -208,7 +208,7 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install ma
 
 dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install quickshell-git
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install quickshell
 
 
 dnf -y copr enable avengemedia/dms-git
@@ -231,6 +231,8 @@ dnf -y install \
     fpaste \
     git-core \
     labwc \
+    nautilus-python\
+    xdg-terminal-exec \
     glycin-thumbnailer \
     gnome-disk-utility \
     gnome-keyring \
@@ -327,3 +329,12 @@ dnf -y install --enablerepo=docker-ce-stable \
 
 dnf -y copr disable secureblue/trivalent
 dnf -y copr disable secureblue/run0edit
+
+# These files NEED to be on the image.
+grep -F -e "ghcr.io/zirconium-dev" /etc/containers/policy.json
+stat /etc/pki/containers/zirconium.pub
+stat /etc/pki/containers/zirconium.pub
+stat /usr/bin/luks*tpm*
+stat /usr/bin/uupd
+stat /usr/lib/systemd/system/uupd.service
+stat /usr/lib/systemd/system/uupd.timer
