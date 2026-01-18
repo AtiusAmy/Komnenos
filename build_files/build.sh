@@ -331,9 +331,9 @@ dnf -y copr disable secureblue/trivalent
 dnf -y copr disable secureblue/run0edit
 
 # These files NEED to be on the image.
-grep -F -e "ghcr.io/zirconium-dev" /etc/containers/policy.json
-stat /etc/pki/containers/zirconium.pub
-stat /etc/pki/containers/zirconium.pub
+grep -F -e "ghcr.io/atiusamy/komnenos" /etc/containers/policy.json
+stat /etc/pki/containers/komnenos.pub
+stat /etc/pki/containers/komnenos.pub
 stat /usr/bin/luks*tpm*
 stat /usr/bin/uupd
 stat /usr/lib/systemd/system/uupd.service

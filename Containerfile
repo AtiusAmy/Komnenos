@@ -7,6 +7,7 @@ FROM quay.io/fedora/fedora-bootc:43
 COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
 COPY --from=ghcr.io/projectbluefin/common:latest /system_files/shared/usr/bin/luks* /usr/bin
 COPY system_files /
+COPY cosign.pub /etc/pki/containers/komnenos.pub
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
 # FROM ghcr.io/ublue-os/bluefin-nvidia:stable
