@@ -19,7 +19,7 @@ dnf -y install 'dnf5-command(config-manager)'
 
 dnf config-manager addrepo --from-repofile=https://repo.secureblue.dev/secureblue.repo
 dnf config-manager setopt secureblue.enabled=0
-dnf -y install --enablerepo='secureblue' trivalent
+dnf -y install --enablerepo='secureblue' trivalent trivalent-selinux
 
 dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 dnf config-manager setopt tailscale-stable.enabled=0
