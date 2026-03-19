@@ -202,13 +202,10 @@ dnf -y --enablerepo copr:copr.fedorainfracloud.org:ublue-os:packages install uup
 
 systemctl enable uupd.timer
 
-dnf -y copr enable zirconium/packages
-dnf -y copr disable zirconium/packages
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install matugen
 
 dnf -y copr enable avengemedia/danklinux
 dnf -y copr disable avengemedia/danklinux
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install quickshell
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:avengemedia:danklinux install quickshell matugen
 
 
 dnf -y copr enable avengemedia/dms-git
