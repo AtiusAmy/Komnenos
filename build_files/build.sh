@@ -244,9 +244,6 @@ dnf -y install \
     adw-gtk3-theme \
     swaybg \
     labwc-tweaks
-dnf -y copr enable solopasha/hyprland
-dnf -y copr disable solopasha/hyprland
-dnf -y --enablerepo copr:copr.fedorainfracloud.org:solopasha:hyprland install waypaper
 
 rm -rf /usr/share/doc/just
 
